@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 const videosRoute = require("./routes/videos.route")
+const likeDislikeRoute = require("./routes/likeDislike.route")
 
 //middleware
 app.use(cors());
@@ -23,6 +24,7 @@ connectToServer((err) => {
 })
 
 app.use("/videos", videosRoute)
+app.use("/likeDislike", likeDislikeRoute)
 
 app.get('/', (req, res) => {
     res.send('running test')
