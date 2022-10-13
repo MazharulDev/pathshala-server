@@ -10,3 +10,12 @@ module.exports.addVideos = async (req, res) => {
 
     }
 };
+module.exports.getVideos = async (req, res) => {
+    try {
+        const db = getDb()
+        const videos = await db.collection("videos").find().toArray();
+        res.send(videos);
+    } catch (error) {
+
+    }
+}
